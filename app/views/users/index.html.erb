@@ -1,0 +1,22 @@
+<h1>Catfact of the day:</h1>
+<div class="fact">
+  <%= image_tag("catfact-bg.jpg", alt:"catfact") %>
+  <%== content_tag(:p, "<b>DID YOU KNOW?</b> <br> #{@catfact}".html_safe ) %>
+</div>
+
+<div class="flex">
+  <div class="subscribe">
+    <h2>Subscribe to receive the daily cat fact!</h2>
+    <% if @user.errors.any? %>
+      <ul>
+        <% @user.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    <% end %>
+    <%= form_with model: @user do |f| %>
+      <%= f.email_field :email, placeholder:"Email", required: true %>
+      <%= f.submit "Subscribe" %> 
+    <% end %>
+  </div>
+</div>
