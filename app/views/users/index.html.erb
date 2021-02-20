@@ -1,11 +1,10 @@
-<h1>Catfact of the day:</h1>
+<h1>Catfact of the day<%= fact_number %></h1>
 <div class="fact">
   <%= image_tag("catfact-bg.jpg", alt:"catfact") %>
   <%== content_tag(:p, "<b>DID YOU KNOW?</b> <br> #{@catfact}".html_safe ) %>
 </div>
 
-<div class="flex">
-  <div class="subscribe">
+<div class="subscribe">
     <h2>Subscribe to receive the daily cat fact!</h2>
     <% if @user.errors.any? %>
       <ul>
@@ -18,5 +17,4 @@
       <%= f.email_field :email, placeholder:"Email", required: true %>
       <%= f.submit "Subscribe" %> 
     <% end %>
-  </div>
 </div>

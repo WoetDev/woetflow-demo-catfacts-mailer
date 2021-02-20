@@ -21,5 +21,16 @@ module CatfactServices
     def breeds
       self.class.get("/breeds", @breed_options)
     end
+
+    def daily_fact
+      if Fact.last && Fact.last.created_at > DateTime.current.days_ago(1)
+        Fact.last.body
+      else
+        response = fact
+        catfact = JSON.parse(response&.body || "{}")["fact"]
+        Fact.create(body: catfact)
+        return catfact
+      end
+    end
   end
 end

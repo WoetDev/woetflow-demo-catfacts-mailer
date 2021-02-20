@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def index
     @user = User.new
-    @catfact = CatfactServices::Catfact.new.fact["fact"]
+    @catfact = CatfactServices::Catfact.new.daily_fact
   end
 
   def create

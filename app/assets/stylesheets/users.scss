@@ -37,6 +37,7 @@ button:active, input[type='submit']:active {
 
 // Variables
 $orange: #E64A19;
+$deep-orange: #D84315;
 $blue-grey-dark: #263238;
 $blue-grey-light: #546E7A;
 
@@ -64,6 +65,15 @@ body {
 
 h1 {
   text-align: center;
+  margin: 20px;
+}
+
+.fact, .subscribe {
+  max-width: 80vw;
+
+  @media only screen and (min-width: 1200px) {
+    width: 55vw;
+  }
 }
 
 .fact {
@@ -71,8 +81,6 @@ h1 {
   justify-content: center;
   align-items: center;
   position: relative;
-  width: 80vw;
-  
   background-image: linear-gradient(to left bottom, rgba(100, 115, 201, 0.33), rgba(25, 32, 72, 0.8));
   overflow: auto;
   border-radius: 15px;
@@ -92,20 +100,14 @@ h1 {
   } 
 }
 
-.flex {
-  display: flex;
-}
-
 .subscribe {
-  display: inline-flex;
+  display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   background: $blue-grey-light;
-  padding: 15px 25px;
-  min-width: 50vw;
-  max-width: 80vw;
   border-radius: 15px;
+  padding: 25px;
   margin: 20px auto;
 
   label {
@@ -125,7 +127,15 @@ h1 {
     cursor: pointer;
     color: white;
     background: $orange;
-    margin-top: 10px;
+    transition: 0.2s ease-in-out;
+    
+    &:hover {
+      background: $deep-orange;
+    }
+
+    @media only screen and (max-width: 576px) {
+      margin-top: 10px;
+    }
   }
 }
 

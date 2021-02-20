@@ -22,6 +22,8 @@ gem 'sidekiq', '~> 6.1', '>= 6.1.3'
 gem 'sidekiq-cron', '~> 1.2'
 # REST API calls
 gem 'httparty', '~> 0.18.1'
+# Environment variables
+gem 'figaro', '~> 1.2'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
