@@ -8,11 +8,26 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     
     if @user.save
-      flash[:notice] = "Pawsome! #{@user.email} will now receive daily cat facts"
+      flash.now[:notice] = "Pawsome! #{@user.email} will now receive daily cat facts"
+      render "index"
+    else
+      flash.now[:alert] = "Apawlogies! We couldn't subscribe #{@user.email}.."
+      render "index"
+    end
+  end
+
+  def unsubscribe
+    @user = User.find_by(email: params[:email])
+  end
+
+  def destroy
+    @user = User.find(params[:id])
+
+    if @user.destroy
+      flash[:notice] = "Incoming cat knowledge cancelled! #{@user.email} has been successfully unsubscribed"
       redirect_to root_path
     else
-      flash[:alert] = "Apawlogies! We couldn't subscribe #{@user.email}.."
-      redirect_to root_path
+      flash.now[:alert] = "Apawlogies! #{@user.email} couldn't be unsubscribed. Please contact wouter.bruynsteen@gmail.com if the problem persists."
     end
   end
 

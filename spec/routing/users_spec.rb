@@ -12,4 +12,12 @@ describe 'user routes' do
   it 'routes POST users to the create action' do
     expect(post '/users').to route_to('users#create')
   end
+
+  it 'routes GET unsubscribe to the unsubscribe action' do
+    expect(get '/unsubscribe').to route_to('users#unsubscribe')
+  end
+
+  it 'routes DELETE user to the destroy action' do
+    expect(delete '/users/1').to route_to('users#destroy', id: '1')
+  end
 end

@@ -14,9 +14,17 @@ RSpec.describe "Users", type: :request do
       expect(response).to have_http_status(:success)
     end
 
-    it 'returns http found from create user path' do
+    it 'returns http success from create user path' do
       post '/users', params: { user: { email: user.email } }
-      expect(response).to have_http_status(:found)
+      expect(response).to have_http_status(:success)
+    end
+
+    it 'returns http success from unsubscribe user path' do
+
+    end
+
+    it 'returns http success from destroy user path' do
+      
     end
   end
 end

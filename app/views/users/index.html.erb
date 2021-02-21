@@ -5,16 +5,16 @@
 </div>
 
 <div class="subscribe">
-    <h2>Subscribe to receive the daily cat fact!</h2>
-    <% if @user.errors.any? %>
-      <ul>
-        <% @user.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    <% end %>
-    <%= form_with model: @user do |f| %>
-      <%= f.email_field :email, placeholder:"Email", required: true %>
-      <%= f.submit "Subscribe" %> 
-    <% end %>
+  <h2>Subscribe to receive the daily cat fact!</h2>
+  <% if @user.errors.any? %>
+    <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
+  <%= form_with model: @user do |f| %>
+    <%= f.email_field :email, placeholder:"Email", required: true %>
+    <%= f.submit "Subscribe", class:"btn" %> 
+  <% end %>
 </div>

@@ -5,6 +5,5 @@ class CatfactMailerJob < ApplicationJob
     User.find_each do |user|
       CatfactMailer.with(user: user, fact: CatfactServices::Catfact.new.daily_fact).daily_catfact.deliver_now
     end
-    Rails.logger.info "Ran CatfactMailerJob for fact ##{Fact.last&.id}"
   end
 end
