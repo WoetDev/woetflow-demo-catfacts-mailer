@@ -64,13 +64,13 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'localhost:3000' }
 
   # Amazon Simple Email Service SMTP settings
-  # config.action_mailer.delivery_method = :smtp
-  # config.action_mailer.smtp_settings = {
-  #   port: 587,
-  #   address: ENV['SMTP_ADDRESS'],
-  #   user_name: ENV['SMTP_USER_NAME'],
-  #   password: ENV['SMTP_PASSWORD'],
-  #   authentication: :plain,
-  #   enable_starttls_auto: true
-  # }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    port: 587,
+    address: ENV['SMTP_ADDRESS'],
+    user_name: ENV['SMTP_USER_NAME'],
+    password: ENV['SMTP_PASSWORD'],
+    authentication: :plain,
+    enable_starttls_auto: true
+  }
 end
