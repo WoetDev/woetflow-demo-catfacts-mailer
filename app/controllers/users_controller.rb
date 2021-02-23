@@ -17,11 +17,16 @@ class UsersController < ApplicationController
   end
 
   def unsubscribe
-    @user = User.find_by(email: params[:email])
+    @user = User&.find_by(email: params[:email])
+
+    unless @user
+      flash[:notice] = "This user was already unsubscribed"
+      redirect_to root_path
+    end
   end
 
   def destroy
-    @user = User.find(params[:id])
+    @user = User&.find(params[:id])
 
     if @user.destroy
       flash[:notice] = "Incoming cat knowledge cancelled! #{@user.email} has been successfully unsubscribed"
