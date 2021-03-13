@@ -23,7 +23,7 @@ module CatfactServices
     end
 
     def daily_fact
-      if Fact.last && Fact.last.created_at > DateTime.current.days_ago(1)
+      if Fact.last && Fact.last.created_at.at_beginning_of_day > Fact.all[-2].created_at.at_beginning_of_day
         Fact.last.body
       else
         response = fact
